@@ -2,7 +2,7 @@
 // Will Hodge
 // Handles the listening and callback for the extension
 
-activated = false;
+var activated = false;
 
 function activate() {
   activated = true;
