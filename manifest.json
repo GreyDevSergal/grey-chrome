@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Grey Chrome",
+  "description": "This extension allows the user to set the current page to display in greyscale. Greyscale is easy on the eyes and also helps to stop mindless computer use.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon48.png"
+  },
+
+  "background": {
+    "persistent": false,
+    "scripts": ["handling.js"]
+  },
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "background",
+    "http://*/",
+    "https://*/"
+  ]
+}
