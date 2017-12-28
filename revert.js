@@ -4,7 +4,5 @@
 
 var body = document.body;
 body.style['filter'] = 'none'; // IE
-if (!body.style['filter']) {
-  body.style['filter'] = 'none'; // Firefox
-  body.style['-webkit-filter'] = 'none'; // Safari / Chrome
-}
+body.style['filter'] = 'none'; // Firefox
+body.style['-webkit-filter'] = 'none'; // Safari / Chrome
