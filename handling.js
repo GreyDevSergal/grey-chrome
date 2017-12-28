@@ -17,7 +17,7 @@ function activate() {
     });
   });
 
-  chrome.tabs.onUpdated.addListener(pageLoaded);
+  chrome.tabs.onUpdated.addListener(newTab);
   activated = true;
   chrome.browserAction.setIcon({
     path : "icons/grey48.png"
@@ -25,16 +25,14 @@ function activate() {
   console.log('Greyscale activated');
 }
 
-function pageLoaded(tabId, changeInfo, tab) {
-  if(changeInfo.status == 'complete'){
-    chrome.tabs.executeScript(tabId, {
-      file: "apply.js",
-      allFrames: true
-    }, result => {
-      const lastErr = chrome.runtime.lastError;
-      if (lastErr) console.log('Cannot change tabs with URLs of chrome:// to greyscale.');
-    });
-  }
+function newTab(tabId, changeInfo, tab) {
+  chrome.tabs.executeScript(tabId, {
+    file: "apply.js",
+    allFrames: true
+  }, result => {
+    const lastErr = chrome.runtime.lastError;
+    if (lastErr) console.log('Cannot change tabs with URLs of chrome:// to greyscale.');
+  });
 }
 
 function deactivate() {
@@ -50,7 +48,7 @@ function deactivate() {
     });
   });
 
-  chrome.tabs.onUpdated.removeListener(pageLoaded);
+  chrome.tabs.onUpdated.removeListener(newTab);
   activated = false;
   chrome.browserAction.setIcon({
     path : "icons/icon48.png"
