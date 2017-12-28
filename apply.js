@@ -5,4 +5,4 @@
 var body = document.body;
 body.style['filter'] = 'progid:DXImageTransform.Microsoft.BasicImage(grayScale=1)'; // IE
 body.style['filter'] = 'grayscale(1)'; // Firefox
-body.style['-webkit-filter'] = 'grayscale(1)'; // Safari / Chrome
+body.style['-webkit-filter'] = 'grayscale(1)'; // Safari + Chrome
