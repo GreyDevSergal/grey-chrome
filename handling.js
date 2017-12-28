@@ -3,6 +3,9 @@
 // Handles the listening and callback for the extension
 
 var activated = false;
+chrome.browserAction.setIcon({
+  path : "icons/icon48.png"
+});
 
 function activate() {
   chrome.tabs.query({currentWindow: true}, function(tabs) {
